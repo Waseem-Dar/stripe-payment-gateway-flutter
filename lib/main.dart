@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_stripe/flutter_stripe.dart';
+import 'constant.dart';
 import 'home_screen.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey = AppConstant.stripePublishableKey;
+  Stripe.instance.applySettings();
   runApp(const MyApp());
 }
 
